@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+:root {
+    --fundo-1: #f7f7f7;
+    --fundo-2: #FFFFFF;
+    --cor-primaria: #e21;
+    --cor-primaria-escura: #900;
+    --texto: #000000;
+    --cor-subtitulo: rgba(0, 0, 0, 0.2);
+    --detalhe-onda: url('../assets/onda-clara.svg');
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --cor-primaria: #e21;
+        --cor-primaria-escura: #900;
+        --fundo-1: #111111;
+        --fundo-2: #000000;
+        --texto: #FFFFFF;
+        --cor-subtitulo: rgba(255, 255, 255, 0.2);
+        --detalhe-onda: url('../assets/onda-escura.svg');
+    }
+}
+
+/* CSS Utilitário */
+.cb {
+    background: var(--fundo-2);
+}
+
+.grid {
+    display: grid;
+}
+
+.j-i {
+    justify-items: center;
+}
+
+.g-1 {
+    gap: 60px;
+}
+
+.g-2 {
+    gap: 20px;
+}
+
+.p-1 {
+    padding: 40px;
+}
+
+.mt-1 {
+    margin-top: 60px;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.txt-right {
+    text-align: right;
+}
+
+.ic {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ic-eletrica {
+    background: url('assets/eletrica.svg');
+}
+
+.ic-rastreador {
+    background: url('assets/rastreador.svg');
+}
+
+.ic-velocidade {
+    background: url('assets/velocidade.svg');
+}
+
+body {
+    background-color: var(--fundo-1);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+ul {
+    list-style: none;
+}
+
+p {
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 1.8rem;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu a {
+    background: var(--fundo-2);
+    border: 2px solid var(--fundo-2);
+    border-radius: 4px;
+    color: var(--texto);
+    display: block;
+    padding: 1rem 2rem;    
+}
+
+.menu a:hover {
+    border-color: var(--cor-primaria);
+}
+
+.conteudo {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    max-width: 1000px;
+}
+
+.introducao {
+    padding: 2.5rem;
+    align-content: center;
+    justify-items: end;
+}
+
+.introducao::before {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: var(--cor-primaria);
+    position: absolute;
+    top: 30px;
+    right: -30px;
+    z-index: 1;
+  }
+
+.botao {
+    background: var(--cor-primaria);
+    padding: 1rem 2rem;
+    border-radius: 4px;
+}
+  
+  .botao:hover {
+    background: var(--cor-primaria-escura);
+}
+
+.cover img {
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.subtitulo {
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: var(--cor-subtitulo);
+    align-self: center;
+    background-image: var(--detalhe-onda);
+}
+  
+.vantagens-item {
+    grid-template-columns: auto 1fr;
+    gap: 10px 20px;
+    padding: 20px;
+    border-left: 4px solid transparent;
+}
+
+.vantagens-item:nth-child(odd) {
+    background: var(--fundo-1);
+}
+
+.vantagens-item:hover {
+    border-color: var(--cor-primaria);
+}
+
+.vantagens-item p {
+    grid-column: 2;
+}
+
+.rodape {
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    body {
+        gap: 40px;
+    }
+
+    .subtitulo {
+        font-size: 3.5rem;
+    }
+
+    .rodape {        
+        padding: 25px;
+    }
+
+    .rodape p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 605px) {
+
+    body {
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .header {
+        gap: 30px;
+    }
+
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .menu a {
+        padding: 0.5rem 0.5rem;
+    }
+
+    .conteudo {
+        max-width: 25rem;
+    }
+
+    .introducao, .subtitulo {
+        text-align: left;
+        justify-items: start;
+    }
+
+    .introducao::before {
+        display: none;
+    }
+
+    .subtitulo {
+        font-size: 3rem;
+    }
+
+    .botao {        
+        display: inline-block;
+        padding: 0.5rem 0.5rem;
+    }
+
+    .rodape {        
+        padding: 20px;
+    }
+
+    .rodape p {
+        font-size: 1rem;
+    }
+}
